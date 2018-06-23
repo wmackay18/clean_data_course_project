@@ -21,5 +21,5 @@ You should create one R script called run_analysis.R that does the following.
 
 ### run script
 
-script file: `run_analysis.R`
-writes tidy data to `tidy_data.txt`
+- script file: `run_analysis.R`
+- writes tidy data to `tidy_data.txt`
