@@ -14,9 +14,19 @@ The code is segemented by the following comments:
 
 ## Download data
 
+Downloads and unzips Human Activity Recognition Using Smartphones Data Set 
 
 ## Read & convert to data frame
 
+- `features` var stores `features.txt` data as chars. 
+- `X_train` stores `X_train.txt` data.
+- `train_activity` stores `y_train.txt` data.
+- `train_subject` stores `subject_train.txt` data.
+- `train_data` is a data frame of `train_subject`, `train_activity`, & `X_train`. 
+- `X_test` stores `X_test.txt` data.
+- `test_activity` stores `test_activity.txt` data.
+- `test_subject` stores `test_subject.txt` data.
+- `train_data` is a data frame of `test_subject`, `test_activity`, & `X_test`. 
 
 ## Merge training and testing
 
