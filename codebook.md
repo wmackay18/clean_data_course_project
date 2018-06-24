@@ -39,11 +39,12 @@ Bind `train_data` and `test_data` into one data set: `merged_data`.
 
 ## Name activities
 
-- Read file `activity_labels.txt` and store in varaible `act_labels`.
+Read file `activity_labels.txt` and store in varaible `act_labels`. Substitutes the activity names for the activity IDs.
 
 ## Label data set
 
+Adds labels to `temp_data`.
 
 ## Generate new data set
 
-
+Using the `aggregate` function, part fo the script takes the average of each variable for each activity and each subject and stores the result a new data frame called `tidy_data`. 
