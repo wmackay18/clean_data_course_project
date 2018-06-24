@@ -41,11 +41,11 @@ temp_data$activity <- act_labels[temp_data$activity]
 
 new_label <- names(temp_data)
 new_label <- gsub("[(][)]", "", new_label)
-new_label <- gsub("^t", "TimeDomain_", new_label)
-new_label <- gsub("^f", "FrequencyDomain_", new_label)
 new_label <- gsub("Acc", "Accelerometer", new_label)
 new_label <- gsub("Gyro", "Gyroscope", new_label)
 new_label <- gsub("Mag", "Magnitude", new_label)
+new_label <- gsub("^t", "TimeDomain_", new_label)
+new_label <- gsub("^f", "FrequencyDomain_", new_label)
 new_label <- gsub("-mean-", "_Mean_", new_label)
 new_label <- gsub("-std-", "_StandardDeviation_", new_label)
 new_label <- gsub("-", "_", new_label)
