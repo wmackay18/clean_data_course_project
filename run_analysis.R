@@ -56,4 +56,4 @@ names(temp_data) <- new_label
 tidy_data <- aggregate(temp_data[,3:81], by = list(activity = temp_data$activity, subject = temp_data$subject),FUN = mean)
 write.table(x = tidy_data, file = "tidy_data.txt", row.names = FALSE)
 
-head(tidy_data)
+summary(tidy_data)
