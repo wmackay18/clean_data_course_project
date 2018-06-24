@@ -30,12 +30,16 @@ Downloads and unzips Human Activity Recognition Using Smartphones Data Set
 
 ## Merge training and testing
 
+Bind `train_data` and `test_data` into one data set: `merged_data`.
 
 ## Get mean and standard dev
 
+ - Search for matches to pattern 'mean|std' in `features` variable and store result in `mean_std_dev`.
+ - Get only the mean and standard deviation from `merged_data` and store in `temp_data`.
 
 ## Name activities
 
+- Read file `activity_labels.txt` and store in varaible `act_labels`.
 
 ## Label data set
 
