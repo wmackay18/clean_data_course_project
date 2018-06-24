@@ -16,6 +16,15 @@ The code is segemented by the following comments:
 
 Downloads and unzips Human Activity Recognition Using Smartphones Data Set 
 
+```
+library(data.table)
+fileurl = 'https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip'
+if (!file.exists('./UCI HAR Dataset.zip')){
+        download.file(fileurl,'./UCI HAR Dataset.zip', mode = 'wb')
+        unzip("UCI HAR Dataset.zip", exdir = getwd())
+}
+```
+
 ## Read & convert to data frame
 
 - `features` var stores `features.txt` data as chars. 
@@ -45,6 +54,25 @@ Read file `activity_labels.txt` and store in varaible `act_labels`. Substitutes 
 
 Adds labels to `temp_data`.
 
+```
+new_label <- names(temp_data)
+new_label <- gsub("[(][)]", "", new_label)
+new_label <- gsub("^t", "TimeDomain_", new_label)
+new_label <- gsub("^f", "FrequencyDomain_", new_label)
+new_label <- gsub("Acc", "Accelerometer", new_label)
+new_label <- gsub("Gyro", "Gyroscope", new_label)
+new_label <- gsub("Mag", "Magnitude", new_label)
+new_label <- gsub("-mean-", "_Mean_", new_label)
+new_label <- gsub("-std-", "_StandardDeviation_", new_label)
+new_label <- gsub("-", "_", new_label)
+names(temp_data) <- new_label
+```
+
 ## Generate new data set
 
 Using the `aggregate` function, part fo the script takes the average of each variable for each activity and each subject and stores the result a new data frame called `tidy_data`. 
+
+```
+tidy_data <- aggregate(temp_data[,3:81], by = list(activity = temp_data$activity, subject = temp_data$subject),FUN = mean)
+write.table(x = tidy_data, file = "tidy_data.txt", row.names = FALSE)
+```
